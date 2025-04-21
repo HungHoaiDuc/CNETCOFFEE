@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="682.0" maxWidth="400.0" minHeight="682.0" minWidth="400.0" prefHeight="682.0" prefWidth="400.0" style="-fx-background-color: #eff1f9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cnetcoffee.Controller.User.HomeUserController">
+<AnchorPane maxHeight="682.0" maxWidth="400.0" minHeight="512.0" minWidth="400.0" prefHeight="512.0" prefWidth="400.0" style="-fx-background-color: #eff1f9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cnetcoffee.Controller.User.HomeUserController">
     <children>
-        <Label layoutX="0.0" prefHeight="63.0" prefWidth="400.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #e5e5e5; -fx-background-color: #f79031; -fx-alignment: center;" text="KHÁCH VÃNG LAI" textAlignment="CENTER" />
+        <Label layoutX="0.0" prefHeight="63.0" prefWidth="400.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #e5e5e5; -fx-background-color: #455A64; -fx-alignment: center;" text="KHÁCH HÀNG" textAlignment="CENTER" />
 
         <HBox alignment="CENTER" layoutX="20.0" layoutY="350.0" spacing="15" />
 
-        <Button fx:id="btn_menuOrder" layoutX="91.0" layoutY="402.0" onAction="#btn_menuOrder" prefHeight="33.0" prefWidth="90.0" text="Dịch vụ">
+        <Button fx:id="btn_menuOrder" layoutX="112.0" layoutY="346.0" onAction="#btn_menuOrder" prefHeight="33.0" prefWidth="81.0" text="Dịch vụ">
         </Button>
 
-        <Button fx:id="btProfile" layoutX="155.0" layoutY="346.0" onAction="#btProfile" prefHeight="33.0" prefWidth="90.0" text="Mật khẩu">
+        <Button fx:id="btProfile" layoutX="206.0" layoutY="346.0" onAction="#btProfile" prefHeight="33.0" prefWidth="81.0" text="Mật khẩu">
         </Button>
 
-        <Button layoutX="290.0" layoutY="346.0" prefHeight="33.0" prefWidth="90.0" text="Khóa máy">
+        <Button fx:id="btLogOut" layoutX="299.0" layoutY="346.0" onAction="#btLogOut" prefHeight="33.0" prefWidth="81.0" text="Đăng xuất">
         </Button>
-
-        <Button fx:id="btLogOut" layoutX="215.0" layoutY="402.0" onAction="#btLogOut" prefHeight="33.0" prefWidth="90.0" text="Đăng xuất">
-        </Button>
-        <Button fx:id="btnChatUser" layoutX="20.0" layoutY="346.0" onAction="#btnChatUser" prefHeight="33.0" prefWidth="90.0" text="Tin nhắn">
+        <Button fx:id="btnChatUser" layoutX="20.0" layoutY="346.0" onAction="#btnChatUser" prefHeight="33.0" prefWidth="81.0" text="Tin nhắn">
         </Button>
       <AnchorPane layoutX="20.0" layoutY="76.0" prefWidth="360.0">
          <children>
