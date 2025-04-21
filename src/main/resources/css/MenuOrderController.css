@@ -1,0 +1,68 @@
+/* Đặt font mặc định */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 10px;
+}
+
+/* Bo góc và đổ bóng cho AnchorPane */
+.anchorpane-rounded {
+    -fx-background-color: #fffaf5;
+    -fx-background-radius: 12;
+    -fx-border-color: #808080;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
+    -fx-padding: 2;
+}
+
+/* Tiêu đề chính */
+#title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF6F00;
+}
+
+.label {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black; /* Màu cam */
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: #fff;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #030303;
+}
+
+/* Button cơ bản */
+.button {
+    -fx-background-color: rgba(176, 178, 180, 0.92);
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 3;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #e65c00;
+}
+
+/* TextField */
+.text-field {
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-border-color: rgba(176, 178, 180, 0.92);
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
+/* ScrollPane (tùy chỉnh thanh cuộn nếu cần) */
+.scroll-pane {
+    -fx-background: #fffaf5;
+    -fx-border-radius: 8;
+}
+
+/* GridPane spacing nếu cần */
+.grid-pane {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}

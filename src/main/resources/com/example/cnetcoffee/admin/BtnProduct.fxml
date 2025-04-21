@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="796.0" stylesheets="@../../../../css/ProductController.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cnetcoffee.Controller.Admin.BtnProductController">
+    <children>
+        <!-- Tiêu đề -->
+        <Label alignment="CENTER" styleClass="title-label" text="Thêm(Sửa) Sản Phẩm" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+
+        <!-- Form nhập liệu -->
+        <GridPane hgap="20" prefHeight="174.0" prefWidth="446.0" vgap="15" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="60.0">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="150.0" />
+                <ColumnConstraints prefWidth="250.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints prefHeight="40.0" />
+                <RowConstraints prefHeight="40.0" />
+                <RowConstraints prefHeight="40.0" />
+            <RowConstraints />
+            </rowConstraints>
+
+            <Label text="Tên sản phẩm:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="lb_productName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Giá:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="lb_price" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Danh mục sản phẩm:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ComboBox fx:id="categoryBox" prefWidth="250.0" promptText="&quot;Chọn danh mục...&quot;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Trạng thái sản phẩm:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="availabilityBox" prefWidth="250.0" promptText="&quot;Chọn trạng thái sẵn có...&quot;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        </GridPane>
+
+        <!-- Khu vực hình ảnh -->
+        <AnchorPane layoutX="578.0" layoutY="65.0" prefHeight="161.0" prefWidth="176.0" styleClass="anchorpane-rounded" stylesheets="@../../../../css/ProductController.css">
+            <children>
+                <ImageView fx:id="imageView" fitHeight="161.0" fitWidth="167.0" layoutX="8.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../img/icon image.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+
+        <!-- Nút chọn ảnh -->
+        <Button fx:id="import_btn" layoutX="606.0" layoutY="262.0" onAction="#importImage" prefHeight="30.0" prefWidth="120.0" styleClass="primary-button" text="Chọn hình ảnh" AnchorPane.leftAnchor="606.0" AnchorPane.topAnchor="262.0" />
+
+        <!-- Nút lưu và hủy -->
+        <HBox layoutX="-1.0" layoutY="355.0" prefHeight="30.0" prefWidth="782.0" spacing="30.0">
+            <children>
+            <Region prefHeight="30.0" prefWidth="245.0" />
+                <Button fx:id="save_btn" onAction="#saveProduct" prefHeight="30.0" prefWidth="100.0" styleClass="primary-button" text="Lưu" />
+                <Button fx:id="cancel_btn" onAction="#cancelAction" prefHeight="30.0" prefWidth="100.0" styleClass="secondary-button" text="Hủy">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

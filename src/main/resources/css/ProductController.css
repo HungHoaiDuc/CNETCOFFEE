@@ -1,0 +1,74 @@
+.root {
+    -fx-background-color: #f7f7f7;
+    -fx-font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.table-container {
+    -fx-background-color: #EAEAEA;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #a6a5a5;
+    -fx-padding: 10px;
+}
+
+.title-label {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E67E22;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-radius: 8px;
+    -fx-border-color: #ddd;
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+.primary-button {
+    -fx-background-color: #E67E22;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+}
+
+.primary-button:hover {
+    -fx-background-color: #D35400;
+}
+
+.danger-button {
+    -fx-background-color: #E67E22;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+}
+
+.danger-button:hover {
+    -fx-background-color: #A93226;
+}
+
+.secondary-button {
+    -fx-background-color: #95A5A6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #D35400;
+}
+
+.text-field, .combo-box {
+    -fx-border-radius: 5px;
+    -fx-border-color: #ddd;
+    -fx-padding: 5px;
+}
+.anchorpane-rounded {
+    -fx-background-radius: 1px;
+    -fx-border-radius: 1px;
+    -fx-border-color: #95A5A6;
+    -fx-background-color: rgba(244, 244, 244, 0.93);
+}

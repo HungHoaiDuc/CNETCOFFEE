@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="682.0" maxWidth="400.0" minHeight="682.0" minWidth="400.0" prefHeight="682.0" prefWidth="400.0" style="-fx-background-color: #eff1f9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cnetcoffee.Controller.User.HomeUserController">
+    <children>
+        <Label layoutX="0.0" prefHeight="63.0" prefWidth="400.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #e5e5e5; -fx-background-color: #f79031; -fx-alignment: center;" text="KHÁCH VÃNG LAI" textAlignment="CENTER" />
+
+        <HBox alignment="CENTER" layoutX="20.0" layoutY="350.0" spacing="15" />
+
+        <Button fx:id="btn_menuOrder" layoutX="91.0" layoutY="402.0" onAction="#btn_menuOrder" prefHeight="33.0" prefWidth="90.0" text="Dịch vụ">
+        </Button>
+
+        <Button fx:id="btProfile" layoutX="155.0" layoutY="346.0" onAction="#btProfile" prefHeight="33.0" prefWidth="90.0" text="Mật khẩu">
+        </Button>
+
+        <Button layoutX="290.0" layoutY="346.0" prefHeight="33.0" prefWidth="90.0" text="Khóa máy">
+        </Button>
+
+        <Button fx:id="btLogOut" layoutX="215.0" layoutY="402.0" onAction="#btLogOut" prefHeight="33.0" prefWidth="90.0" text="Đăng xuất">
+        </Button>
+        <Button fx:id="btnChatUser" layoutX="20.0" layoutY="346.0" onAction="#btnChatUser" prefHeight="33.0" prefWidth="90.0" text="Tin nhắn">
+        </Button>
+      <AnchorPane layoutX="20.0" layoutY="76.0" prefWidth="360.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="242.0" prefWidth="360.0" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #d0d0d0;">
+               <children>
+                  <GridPane alignment="CENTER" hgap="10" vgap="10">
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Tổng thời gian:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="tfTotalTime" alignment="CENTER" editable="false" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label text="Thời gian sử dụng:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfUsedTime" alignment="CENTER" editable="false" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Thời gian còn lại:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfRemainingTime" alignment="CENTER" editable="false" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Tổng chi phí:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="tfTotalCost" alignment="CENTER" editable="false" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Số dư tài khoản:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextField fx:id="tfBalance" alignment="CENTER" editable="false" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

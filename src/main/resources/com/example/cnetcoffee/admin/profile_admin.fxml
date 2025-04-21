@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cnetcoffee.Controller.UserManagerController">
+
+    <!-- Viền bao quanh tất cả -->
+    <center>
+        <StackPane>
+            <VBox spacing="10" style="-fx-padding: 20;">
+
+                <!-- Tiêu đề -->
+                <HBox alignment="CENTER">
+                    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Quản Lý Tài Khoản" />
+                </HBox>
+
+                <!-- Nội dung chính -->
+                <GridPane fx:id="gridPane" hgap="20" vgap="15">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+
+                    <!-- Cấu hình cột -->
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="150" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="150" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                    </columnConstraints>
+
+                    <rowConstraints>
+                        <RowConstraints minHeight="40" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="40" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="40" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="40" vgrow="ALWAYS" />
+                    </rowConstraints>
+
+                    <!-- Hàng 1 -->
+                    <Label text="User ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtUserId" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Username:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtUsername" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                    <!-- Hàng 2 -->
+                    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtPassword" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Full Name:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtFullName" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                    <!-- Hàng 3 -->
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtEmail" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Phone:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtPhone" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                    <!-- Hàng 4 -->
+                    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtRole" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </GridPane>
+
+                <!-- Nút chức năng -->
+                <HBox alignment="CENTER" spacing="20">
+                    <Button fx:id="btnSave" text="Lưu" visible="false" />
+                    <Button fx:id="btnEdit" prefHeight="25.0" prefWidth="109.0" text="Chỉnh sửa">
+                        <font>
+                            <Font size="14.0" />
+                        </font></Button>
+                    <Button fx:id="btnCancel" text="Hủy" visible="false" />
+                    <!-- Khi nhấn nút Chỉnh sửa, các trường TextField chuyển sang chế độ chỉnh sửa (set editable="true") -->
+                    <!-- Nút Chỉnh sửa ẩn đi và nút Lưu, Hủy sẽ xuất hiện -->
+
+                    <!-- Khi nhấn nút Lưu, các thay đổi trên giao diện được lưu vào cơ sở dữ liệu. -->
+                    <!-- Sau khi lưu, các trường sẽ trở lại chế độ không chỉnh sửa (set editable="false") -->
+                    <!-- Nút Lưu và Hủy ẩn đi, và nút Chỉnh sửa sẽ xuất hiện trở lại. -->
+
+                    <!-- Khi nhấn nút Hủy, các trường nhập liệu sẽ khôi phục lại giá trị ban đầu từ cơ sở dữ liệu và trở lại chế độ không chỉnh sửa. -->
+                    <!-- Nút Lưu và Hủy ẩn đi, và nút Chỉnh sửa sẽ xuất hiện trở lại. -->
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

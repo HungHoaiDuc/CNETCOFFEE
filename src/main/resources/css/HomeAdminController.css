@@ -1,0 +1,55 @@
+.menu-item {
+    -fx-font-size: 14px;
+    -fx-padding: 5px 20px;
+    -fx-text-fill: #333;
+}
+
+.menu-item:hover {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 5px;
+}
+
+.menu-button {
+    -fx-font-size: 14px;
+    -fx-background-radius: 2;
+    -fx-padding: 5px 10px;
+    -fx-border-width: 2px;
+    -fx-pref-width: 236px;
+    -fx-pref-height: 36px;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: orange;
+}
+
+/* Giao diện mặc định cho Pane của máy tính */
+.computer-pane {
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-background-color: #BB0000;
+}
+
+/* Giao diện khi máy tính đang sử dụng */
+
+
+.computer-pane-in-use {
+    -fx-background-color: #00AA00;
+    -fx-border-color: #333;
+    -fx-border-width: 2px;
+}
+
+.computer-pane-ready {
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-background-color: #FFD700; /* màu vàng để thể hiện đang chờ */
+}
+
+/* Giao diện cho Label tên máy tính */
+.computer-name-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}

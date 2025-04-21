@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="homeAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="873.0" stylesheets="@/css/HomeAdminController.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cnetcoffee.Controller.Admin.HomeAdminController">
+   <children>
+      <VBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <!-- Header -->
+         <AnchorPane fx:id="apTitle" prefHeight="120.0">
+            <children>
+               <Pane prefHeight="120.0" prefWidth="250.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 5;">
+                  <children>
+                     <Label layoutX="14.0" layoutY="14.0" text="Xin chào:">
+                        <font>
+                           <Font name="System Bold" size="18.0" />
+                        </font>
+                     </Label>
+                     <Text fx:id="user" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nguyễn Tiến Lâm" wrappingWidth="130.0">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="btLogout" accessibleRole="BUTTON" fitHeight="44.0" fitWidth="47.0" layoutX="189.0" layoutY="62.0" onDragDetected="#btLogout" onMouseClicked="#btLogout">
+                        <image>
+                           <Image url="@../../../../img/Logout.png" />
+                        </image>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </ImageView>
+                  </children>
+               </Pane>
+               <AnchorPane layoutX="263.0" layoutY="91.0" prefHeight="27.0" prefWidth="593.0">
+                  <children>
+                     <HBox layoutY="-2.0" prefHeight="30.0" prefWidth="593.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <Button fx:id="btAddPC" mnemonicParsing="false" onAction="#btAddPC" prefHeight="30.0" prefWidth="142.0" text="➕ Thêm máy" textFill="#fc0000">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                              <cursor>
+                                 <Cursor fx:constant="HAND" />
+                              </cursor>
+                           </Button>
+                           <Button mnemonicParsing="false" onAction="#btTurnOffAllPc" prefHeight="30.0" prefWidth="144.0" text="Tắt toàn bộ máy">
+                              <HBox.margin>
+                                 <Insets left="5.0" />
+                              </HBox.margin>
+                              <cursor>
+                                 <Cursor fx:constant="HAND" />
+                              </cursor>
+                           </Button>
+                           <StackPane prefHeight="30.0" prefWidth="121.0">
+                              <HBox.margin>
+                                 <Insets left="5.0" />
+                              </HBox.margin>
+                              <children>
+                                 <Button mnemonicParsing="false" onAction="#btAdminChat" prefHeight="50.0" prefWidth="113.0" text="Chat">
+                                    <cursor>
+                                       <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                 </Button>
+                                 <Label fx:id="Notification" alignment="CENTER" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-background-radius: 10;" text="3">
+                                    <font>
+                                       <Font size="12" />
+                                    </font>
+                                    <StackPane.margin>
+                                       <Insets left="80.0" />
+                                    </StackPane.margin>
+                                 </Label>
+                              </children>
+                           </StackPane>
+                           <Button mnemonicParsing="false" onAction="#btUpdatePrice" prefHeight="30.0" prefWidth="144.0" text="Cập Nhật Giá">
+                              <cursor>
+                                 <Cursor fx:constant="HAND" />
+                              </cursor>
+                              <HBox.margin>
+                                 <Insets left="5.0" />
+                              </HBox.margin>
+                           </Button>
+                           <TextField fx:id="tfSearchPC" alignment="CENTER" prefHeight="30.0" prefWidth="144.0" promptText="Tìm tên máy">
+                              <cursor>
+                                 <Cursor fx:constant="TEXT" />
+                              </cursor>
+                              <HBox.margin>
+                                 <Insets left="60.0" />
+                              </HBox.margin>
+                           </TextField>
+                        </children>
+                     </HBox>
+                  </children>
+               </AnchorPane>
+            </children>
+            <VBox.margin>
+               <Insets left="10.0" top="5.0" />
+            </VBox.margin>
+         </AnchorPane>
+
+         <HBox prefWidth="863.0" spacing="10" VBox.vgrow="ALWAYS">
+            <!-- Menu -->
+            <AnchorPane fx:id="apMenu" prefWidth="250.0">
+               <children>
+                  <VBox prefHeight="494.0" prefWidth="250.0" spacing="10" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 5;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <Button fx:id="btHome" onAction="#btHome" prefHeight="36.0" prefWidth="236.0" text="Trang chủ">
+                        <VBox.margin>
+                           <Insets left="5.0" right="5.0" top="10.0" />
+                        </VBox.margin>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <font>
+                           <Font size="14.0" />
+                        </font></Button>
+                     <VBox fx:id="managementMenu">
+                        <Button fx:id="btManagement" onAction="#toggleManagementMenu" prefHeight="36.0" prefWidth="236.0" text="Quản lý">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <VBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </VBox.margin>
+                     </VBox>
+                     <VBox fx:id="statisticalMenu">
+                        <children>
+                           <Button fx:id="btStatistical" onAction="#btStatistical" prefHeight="36.0" prefWidth="236.0" text="Thống kê">
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                              <cursor>
+                                 <Cursor fx:constant="HAND" />
+                              </cursor>
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Button>
+                        </children>
+                        <VBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </VBox.margin>
+                     </VBox>
+
+                     <StackPane alignment="TOP_RIGHT">
+                        <Button fx:id="btServiceUser" onAction="#btServiceUser" prefHeight="36.0" prefWidth="236.0" text="Dịch vụ" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets right="5.0" />
+                           </StackPane.margin>
+                        </Button>
+
+                        <!-- Label hiển thị số lượng đơn hàng -->
+                        <Label fx:id="lbOrderCount" alignment="CENTER" minHeight="20.0" minWidth="20.0" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-background-radius: 10;" text="3">
+                           <font>
+                              <Font size="12" />
+                           </font>
+                        </Label>
+                     </StackPane>
+                     <Button fx:id="btIndividual" onAction="#btIndividual" prefHeight="36.0" prefWidth="236.0" text="Cá nhân">
+                        <VBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </VBox.margin>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <font>
+                           <Font size="14.0" />
+                        </font></Button>
+                  </VBox>
+               </children>
+            </AnchorPane>
+
+            <!-- Content -->
+            <AnchorPane fx:id="apHome" prefHeight="201.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="494.0" prefWidth="597.0" spacing="10" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 5;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
+                     <Text text="Quản lý máy trạm" textAlignment="CENTER" wrappingWidth="220.47265625">
+                        <font>
+                           <Font name="System Bold" size="24.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
+                     </Text>
+                     <ScrollPane fitToHeight="true" fitToWidth="true">
+                        <content>
+                           <VBox spacing="20">
+                              <padding>
+                                 <Insets bottom="10" left="10" right="10" top="10" />
+                              </padding>
+                              <children>
+                                 <VBox spacing="5">
+                                    <children>
+                                       <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Máy thường" />
+                                       <FlowPane fx:id="flowPaneNormal" hgap="10.0" prefWrapLength="600.0" vgap="10.0" />
+                                    </children>
+                                 </VBox>
+                                 <VBox spacing="5">
+                                    <children>
+                                       <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Máy VIP" />
+                                       <FlowPane fx:id="flowPaneVIP" hgap="10.0" prefWrapLength="600.0" vgap="10.0" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </VBox>
+                        </content>
+                     </ScrollPane>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <VBox.margin>
+               <Insets left="10.0" />
+            </VBox.margin>
+         </HBox>
+      </VBox>
+   </children>
+</AnchorPane>
