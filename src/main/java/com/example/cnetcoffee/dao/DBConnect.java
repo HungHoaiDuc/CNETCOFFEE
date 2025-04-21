@@ -9,7 +9,7 @@ public class DBConnect {
     private static final String HOST = "192.168.1.30";
     private static final String PORT = "1433";
     private static final String DATABASE = "NetCafeDB";
-    private static final String USER = "tienlam14";
+    private static final String USER = "hung283";
     private static final String PASSWORD = "123456";
 
     private static final String URL = String.format(
