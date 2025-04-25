@@ -342,7 +342,7 @@ public class UserManagerDAO {
                 Timestamp startTime = rs.getTimestamp("start_time");
                 int totalSecondsUsed = rs.getInt("total_seconds_used");
 
-                double pricePerHour = "VIP".equalsIgnoreCase(type) ? 7000 : 5000;
+                double pricePerHour = com.example.cnetcoffee.dao.PriceDAO.getPricePerHour(type.toUpperCase());
                 double pricePerSecond = pricePerHour / 3600; // Giá tiền mỗi giây
 
                 // Tính thời gian mới sử dụng kể từ lần cập nhật cuối cùng
