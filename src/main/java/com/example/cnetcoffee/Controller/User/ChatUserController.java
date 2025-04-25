@@ -4,9 +4,12 @@ import com.example.cnetcoffee.Model.Message;
 import com.example.cnetcoffee.Model.User;
 import com.example.cnetcoffee.dao.MessageDAO;
 import com.example.cnetcoffee.utils.SessionManager;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
@@ -15,13 +18,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class ChatUserController {
+public class ChatUserController implements Initializable {
 
     @FXML
     private VBox chatBox;
@@ -39,26 +46,43 @@ public class ChatUserController {
     private ObjectOutputStream out;
     private ObjectInputStream in;
 
-    public void setReceiverId(int receiverId) {
-        this.receiverId = receiverId;
-        this.sessionId = SessionManager.getCurrentSessionId();
-        connectSocket();
-    }
-
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         this.receiverId = 1;
         this.sessionId = SessionManager.getCurrentSessionId();
 
         if (sessionId > 0) {
             connectSocket();
             loadChatHistory();
+
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+                Platform.runLater(() -> {
+                    loadChatHistory(); // Reload chat history
+                });
+            }));
+            timeline.setCycleCount(Timeline.INDEFINITE);
+            timeline.play();
         }
+        messageField.setOnKeyPressed(event -> {
+            switch (event.getCode()) {
+                case ENTER:
+                    sendMessage(new ActionEvent()); // Gọi phương thức sendMessage
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
+
+    public void setReceiverId(int receiverId) {
+        this.receiverId = receiverId;
+        this.sessionId = SessionManager.getCurrentSessionId();
+        connectSocket();
     }
 
     private void connectSocket() {
         try {
-            socket = new Socket("localhost", 12345); // IP Server nếu chạy trên LAN
+            socket = new Socket("localhost", 12345);
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
 
@@ -66,7 +90,9 @@ public class ChatUserController {
                 try {
                     while (true) {
                         Message message = (Message) in.readObject();
-                        Platform.runLater(() -> addMessageToChat(message));
+                        Platform.runLater(() -> {
+                            loadChatHistory();
+                        });
                     }
                 } catch (Exception e) {
                     System.out.println("❌ Lỗi nhận tin nhắn ở user: " + e.getMessage());
@@ -104,7 +130,6 @@ public class ChatUserController {
                 out.writeObject(message);
                 out.flush();
                 messageField.clear();
-                // Không gọi addMessageToChat ở đây!
             } catch (IOException e) {
                 System.out.println("❌ Không thể gửi tin nhắn: " + e.getMessage());
             }
@@ -135,13 +160,21 @@ public class ChatUserController {
     }
 
     public void loadChatHistory() {
-        List<Message> messages = new MessageDAO().getConversationWithUserInSession(
-                SessionManager.getCurrentUser().getId(), // userId hiện tại
-                sessionId // sessionId hiện tại
-        );
-        for (Message msg : messages) {
-            addMessageToChat(msg);
-        }
-    }
+        Platform.runLater(() -> {
+            chatBox.getChildren().clear();
+            List<Message> messages = new MessageDAO().getConversationWithUserInSession(
+                    SessionManager.getCurrentUser().getId(),
+                    sessionId
+            );
 
+            // Sắp xếp theo thời gian gửi
+            messages.sort(Comparator.comparing(Message::getSentTime));
+
+            for (Message msg : messages) {
+                addMessageToChat(msg);
+            }
+            scrollPane.layout();
+            scrollPane.setVvalue(1.0);
+        });
+    }
 }

@@ -33,7 +33,7 @@ public class MainUser extends Application{
         ClientSocketHandler.startListeningFromAdmin();
 
         new Thread(() -> {
-            try (Socket socket = new Socket("192.168.1.30", 12346);
+            try (Socket socket = new Socket("172.168.10.165", 12346);
                  PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
 
                 out.println("READY " + thisComputerId);

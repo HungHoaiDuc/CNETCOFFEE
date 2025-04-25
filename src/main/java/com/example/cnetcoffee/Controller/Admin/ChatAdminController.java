@@ -3,9 +3,12 @@ package com.example.cnetcoffee.Controller.Admin;
 import com.example.cnetcoffee.Model.Message;
 import com.example.cnetcoffee.Model.User;
 import com.example.cnetcoffee.utils.SessionManager;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
@@ -14,13 +17,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.ResourceBundle;
+import java.util.List;
 
-public class ChatAdminController {
-
+public class ChatAdminController implements Initializable {
     @FXML
     private VBox chatBox;
 
@@ -36,6 +43,30 @@ public class ChatAdminController {
     private Socket socket;
     private ObjectOutputStream out;
     private ObjectInputStream in;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Initial load and setup timeline
+        loadChatHistory();  // Load initially
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> {
+            Platform.runLater(() -> {
+                loadChatHistory(); // Reload chat history
+            });
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
+        messageField.setOnKeyPressed(event -> {
+            switch (event.getCode()) {
+                case ENTER:
+                    sendMessage(new ActionEvent()); // Gọi phương thức sendMessage
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
 
     public void setReceiverInfo(int receiverId, int sessionId) {
         this.receiverId = receiverId;
@@ -54,7 +85,10 @@ public class ChatAdminController {
                 try {
                     while (true) {
                         Message message = (Message) in.readObject();
-                        Platform.runLater(() -> addMessageToChat(message));
+                        Platform.runLater(() -> {
+                            // Refresh chat history instead of adding directly
+                            loadChatHistory();
+                        });
                     }
                 } catch (Exception e) {
                     System.out.println("❌ Lỗi nhận tin nhắn ở admin: " + e.getMessage());
@@ -119,12 +153,18 @@ public class ChatAdminController {
     }
 
     private void loadChatHistory() {
-        int userId = receiverId; // userId của user (không phải admin)
-        java.util.List<Message> messages = new com.example.cnetcoffee.dao.MessageDAO()
-                .getConversationWithUserInSession(userId, sessionId);
-        for (Message msg : messages) {
-            addMessageToChat(msg);
-        }
-    }
+        Platform.runLater(() -> {  // Ensure UI updates are done on the FX thread
+            chatBox.getChildren().clear();  // Clear existing messages
+            int userId = receiverId; // userId của user (không phải admin)
+            List<Message> messages = new com.example.cnetcoffee.dao.MessageDAO()
+                    .getConversationWithUserInSession(userId, sessionId);
+            messages.sort(Comparator.comparing(Message::getSentTime));
 
+            for (Message msg : messages) {
+                addMessageToChat(msg);
+            }
+            scrollPane.layout();
+            scrollPane.setVvalue(1.0);
+        });
+    }
 }

@@ -17,7 +17,7 @@ import java.net.Socket;
 public class ClientSocketHandler {
 
     public static boolean sendCommand(String command) {
-        try (Socket socket = new Socket("192.168.1.30", 12346);
+        try (Socket socket = new Socket("172.168.10.165", 12346);
              PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 

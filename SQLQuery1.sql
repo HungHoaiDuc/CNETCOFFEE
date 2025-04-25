@@ -35,7 +35,7 @@ CREATE TABLE users (
                        user_id INT IDENTITY(1,1) PRIMARY KEY,
                        username NVARCHAR(50) UNIQUE NOT NULL,
                        password NVARCHAR(255) NOT NULL,
-                       full_name NVARCHAR(100) NULL, -- Cho phép NULL cho full_name
+                       full_name NVARCHAR(100) NULL,
                        email NVARCHAR(100) NULL,
                        phone NVARCHAR(15) NULL, -- Đảm bảo phone có thể NULL
                        balance DECIMAL(10,2) DEFAULT 0, -- Số tiền còn trong tài khoản

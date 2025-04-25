@@ -80,7 +80,7 @@ public class UserManagerController {
 
         setupContextMenu();
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> loadUsers()));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> loadUsers()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 

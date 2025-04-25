@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnect {
     // Cấu hình kết nối tới SQL Server (máy chủ tự cài)
-    private static final String HOST = "192.168.1.30";
+    private static final String HOST = "172.168.10.165";
     private static final String PORT = "1433";
     private static final String DATABASE = "NetCafeDB";
     private static final String USER = "hung283";

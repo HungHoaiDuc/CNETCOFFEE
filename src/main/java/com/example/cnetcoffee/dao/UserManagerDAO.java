@@ -108,11 +108,12 @@ public class UserManagerDAO {
         }
 
         String sql =
-                "INSERT INTO users (username, password, role, balance) VALUES (?, ?, 'USER', 0)";
+                "INSERT INTO users (username, password, full_name, role, balance) VALUES (?, ?, ?, 'USER', 0)";
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
+            stmt.setString(3, fullname);
             stmt.executeUpdate();
             System.out.println("User created: " + username);
         } catch (SQLException e) {
